@@ -12,7 +12,7 @@
 }
 
 
-:: ATTACK {"position":"800,1000","size":"100,100"}
+:: ATTACK {"position":"800,1300","size":"100,100"}
 You attack. The creature shrieks and lashes out wildly.
 
 You manage to wound it badly, collapsesing and leaking a dark fluid across the floor.
@@ -20,7 +20,7 @@ You manage to wound it badly, collapsesing and leaking a dark fluid across the f
 [[Ending 1]]
 
 
-:: ESCAPE {"position":"1200,1000","size":"100,100"}
+:: ESCAPE {"position":"1200,1300","size":"100,100"}
 You burst out the door, gasping for air.
 
 The creature stops at the threshold, unwilling to follow.
@@ -29,17 +29,17 @@ It retreats back into the darkness of your home.
 [[Ending 3]]
 
 
-:: Ending 1 {"position":"800,1400","size":"100,100"}
+:: Ending 1 {"position":"800,1500","size":"100,100"}
 The monster is dead, 
 your home is safe, 
 but your scars in your face will never fade.
 
 
-:: Ending 2 {"position":"1000,1600","size":"100,100"}
+:: Ending 2 {"position":"1000,1700","size":"100,100"}
 There is no pain, only darkness.
 
 
-:: Ending 3 {"position":"1200,1400","size":"100,100"}
+:: Ending 3 {"position":"1200,1500","size":"100,100"}
 You live.
 But whatever now lives in your house… knows you’ll never return.
 
@@ -54,7 +54,7 @@ What do you do?
 [[Ignore it like nothing happened->IGNORE]]
 
 
-:: IGNORE {"position":"1200,600","size":"100,100"}
+:: IGNORE {"position":"1200,700","size":"100,100"}
 You acted like nothing happen, just another mess that you will clean "later".
 
 Then, it attacked you. Something jumped from behind and tied to your head, scratching you as it struggled. You tried to fight and managed to remove the thing from your face, leaving scars like if you just fought a tiger.
@@ -64,7 +64,7 @@ After it fell on the ground you saw it, a leech-like creature, almost the size o
 [[Continue->STARE AT MONSTER]]
 
 
-:: INVESTIGATE {"position":"800,600","size":"100,100"}
+:: INVESTIGATE {"position":"800,700","size":"100,100"}
 You slowly walk following the path of ingredients... You start to hear something, like a rat searching between things, a really big rat.
 
 Then you spotted it. A leech-like creature, almost the size of a domestic dog with many thin legs like a spider, it was horrible. 
@@ -74,7 +74,7 @@ The monster suddenly turned around and "stared" at you, as it didn't have any ey
 [[Continue->STARE AT MONSTER]]
 
 
-:: STARE AT MONSTER {"position":"1000,800","size":"100,100"}
+:: STARE AT MONSTER {"position":"1000,900","size":"100,100"}
 The creature stayed still for a moment with its legs tembling.
 A wet sound came from its circular mouth, fangs grinding slowly.
 
@@ -85,11 +85,10 @@ You realized it was listening to you breathe.
 [[Run for the door->ESCAPE]]
 
 
-:: STILL {"position":"1000,1200","size":"100,100"}
+:: STILL {"position":"1000,1100","size":"100,100"}
 You freeze. Seconds stretch painfully.
-
 The creature suddenly turns away, distracted by the smell of food deeper in the house.
-You realize it reacts to movement and sound.
+
 
 [[Take the chance to strike it now->ATTACK]]
 [[Remain completely still->STILL2]]
@@ -99,7 +98,7 @@ You realize it reacts to movement and sound.
 
 
 
-:: STILL2 {"position":"1000,1400","size":"100,100"}
+:: STILL2 {"position":"1000,1500","size":"100,100"}
 You don’t move. Not even to breathe.
 
 The silence drags on until the creature slowly turns back toward you.
