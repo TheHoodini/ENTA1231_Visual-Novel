@@ -1,0 +1,118 @@
+:: StoryTitle
+1231_ExampleStory
+
+
+:: StoryData
+{
+  "ifid": "8FD584E2-C968-43E7-9BCD-7AD8E90A4BEA",
+  "format": "Harlowe",
+  "format-version": "3.3.9",
+  "start": "Start",
+  "zoom": 0.6
+}
+
+
+:: ATTACK {"position":"800,1300","size":"100,100"}
+You attack. The creature shrieks and lashes out wildly.
+
+You manage to wound it badly, collapsesing and leaking a dark fluid across the floor.
+
+[[Ending 1]]
+
+
+:: ESCAPE {"position":"1200,1300","size":"100,100"}
+You burst out the door, gasping for air.
+
+The creature stops at the threshold, unwilling to follow.
+It retreats back into the darkness of your home.
+
+[[Ending 3]]
+
+
+:: Ending 1 {"position":"800,1500","size":"100,100"}
+The monster is dead, 
+your home is safe, 
+but your scars in your face will never fade.
+
+
+:: Ending 2 {"position":"1000,1700","size":"100,100"}
+There is no pain, only darkness.
+
+
+:: Ending 3 {"position":"1200,1500","size":"100,100"}
+You live.
+But whatever now lives in your house… knows you’ll never return.
+
+
+:: Entrance {"position":"1000,500","size":"100,100"}
+You stand still, listening.
+The house feels wrong, heavier than usual, as if something else is here with you.
+
+What do you do?
+
+[[Carefully follow the trace->INVESTIGATE]]
+[[Ignore it like nothing happened->IGNORE]]
+
+
+:: IGNORE {"position":"1200,700","size":"100,100"}
+You acted like nothing happen, just another mess that you will clean "later".
+
+Then, it attacked you. Something jumped from behind and tied to your head, scratching you as it struggled. You tried to fight and managed to remove the thing from your face, leaving scars like if you just fought a tiger.
+
+After it fell on the ground you saw it, a leech-like creature, almost the size of a domestic dog crawling around with many thin spider legs.
+
+[[Continue->STARE AT MONSTER]]
+
+
+:: INVESTIGATE {"position":"800,700","size":"100,100"}
+You slowly walk following the path of ingredients... You start to hear something, like a rat searching between things, a really big rat.
+
+Then you spotted it. A leech-like creature, almost the size of a domestic dog with many thin legs like a spider, it was horrible. 
+
+The monster suddenly turned around and "stared" at you, as it didn't have any eyes, just a giant circular mouth with fangs around like a saw. It immeaditely jumped towards you but you managed to dodge it.
+
+[[Continue->STARE AT MONSTER]]
+
+
+:: STARE AT MONSTER {"position":"1000,900","size":"100,100"}
+The creature stayed still for a moment with its legs tembling.
+A wet sound came from its circular mouth, fangs grinding slowly.
+
+You realized it was listening to you breathe.
+
+[[Stay still->STILL]]
+[[Grab something and attack->ATTACK]]
+[[Run for the door->ESCAPE]]
+
+
+:: STILL {"position":"1000,1100","size":"100,100"}
+You freeze. Seconds stretch painfully.
+The creature suddenly turns away, distracted by the smell of food deeper in the house.
+
+
+[[Take the chance to strike it now->ATTACK]]
+[[Remain completely still->STILL2]]
+[[Sneak past it toward the exit->ESCAPE]]
+
+
+
+
+
+:: STILL2 {"position":"1000,1500","size":"100,100"}
+You don’t move. Not even to breathe.
+
+The silence drags on until the creature slowly turns back toward you.
+This time, it doesn’t hesitate.
+
+It lunges with terrifying precision, its fanged mouth closing around you before you can react.
+
+[[Ending 2]]
+
+
+:: Start {"position":"1000,300","size":"100,100"}
+After you open the entrance of your home you encounter a mess in your house.
+Not the usual one you leave behind before leaving, this looks like a disaster a hurricane could have left.
+
+On the floor you spot a trace of food. Not one in particular, but a mixture of many things that were probably stolen from your kitchen.
+
+[[Continue->Entrance]]
