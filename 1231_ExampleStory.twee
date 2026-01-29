@@ -6,47 +6,128 @@
 {
   "ifid": "8FD584E2-C968-43E7-9BCD-7AD8E90A4BEA",
   "format": "Harlowe",
-  "format-version": "3.3.9",
+  "format-version": "2.1.0",
   "start": "Start",
   "zoom": 0.6
 }
 
 
-:: ATTACK {"position":"800,1300","size":"100,100"}
-You attack. The creature shrieks and lashes out wildly.
+:: ATTACK {"position":"1900,300","size":"100,100"}
+(set: $attackedFirst to true)
 
-You manage to wound it badly, collapsesing and leaking a dark fluid across the floor.
+(if: $hasUmbrella)[
+You swing the umbrella with everything you have.
+The metal rod pierces deep into the creature.
+]
 
-[[Ending 1]]
+(if: not $hasUmbrella)[
+You grab whatever is nearby.
+It’s not enough.
+]
 
+(if: $hasUmbrella)[
+[[Continue->Ending 1]]
+]
 
-:: ESCAPE {"position":"1200,1300","size":"100,100"}
-You burst out the door, gasping for air.
-
-The creature stops at the threshold, unwilling to follow.
-It retreats back into the darkness of your home.
-
-[[Ending 3]]
-
-
-:: Ending 1 {"position":"800,1500","size":"100,100"}
-The monster is dead, 
-your home is safe, 
-but your scars in your face will never fade.
-
-
-:: Ending 2 {"position":"1000,1700","size":"100,100"}
-There is no pain, only darkness.
+(if: not $hasUmbrella)[
+(set: $injured to true)
+[[Continue->Ending 2]]
+]
 
 
-:: Ending 3 {"position":"1200,1500","size":"100,100"}
+:: BUY {"position":"500,500","size":"100,100"}
+At the corner shop, two things catch your attention:
+- A sturdy umbrella for **$15**
+- A cheap but filling meal for **$10**
+
+You can’t afford both.
+
+What do you buy?
+
+[[Buy the umbrella->BUY UMBRELLA]]
+[[Buy the food->BUY FOOD]]
+[[Buy nothing and save the money->BUY NOTHING]]
+
+
+:: BUY FOOD {"position":"700,500","size":"100,100"}
+(set: $ateFood to true)
+(set: $money to $money - 10)
+
+You eat quickly under the store’s awning.
+
+You feel calmer. A little stronger.
+
+[[Go home->GO HOME]]
+
+
+:: BUY NOTHING {"position":"700,700","size":"100,100"}
+You decide to save the money.
+Your hunger doesn’t agree with that decision.
+
+[[Go home->GO HOME]]
+
+
+:: BUY UMBRELLA {"position":"700,300","size":"100,100"}
+(set: $hasUmbrella to true)
+(set: $money to $money - 15)
+
+You buy the umbrella. The rain drums loudly against it as you walk.
+At least you’ll stay dry.
+
+[[Go home->GO HOME]]
+
+
+:: ESCAPE {"position":"1900,700","size":"100,100"}
+(if: $panicked)[
+You stumble, barely making it outside.
+]
+
+(if: not $panicked)[
+You move quietly and escape unnoticed.
+]
+
+[[Continue->Ending 3]]
+
+
+:: Ending 1 {"position":"2100,300","size":"100,100"}
+The monster collapses, leaking dark fluid across the floor.
+
+Your home is safe.
+
+(if: $injured)[
+But the scars on your face will never fade.
+]
+
+You survived.
+
+THE END
+
+
+:: Ending 2 {"position":"2100,500","size":"100,100"}
+There is no pain.
+
+Only darkness.
+
+THE END
+
+
+:: Ending 3 {"position":"2100,700","size":"100,100"}
 You live.
-But whatever now lives in your house… knows you’ll never return.
+
+But whatever now lives in your house…
+knows you’ll never return.
+
+THE END
 
 
-:: Entrance {"position":"1000,500","size":"100,100"}
+:: Entrance {"position":"1100,500","size":"100,100"}
 You stand still, listening.
 The house feels wrong, heavier than usual, as if something else is here with you.
+
+(if:  $ateFood is true)
+[
+Your stomach tightens. Something smells *off*.
+]
 
 What do you do?
 
@@ -54,65 +135,104 @@ What do you do?
 [[Ignore it like nothing happened->IGNORE]]
 
 
-:: IGNORE {"position":"1200,700","size":"100,100"}
-You acted like nothing happen, just another mess that you will clean "later".
+:: GO HOME {"position":"900,500","size":"100,100"}
+After you open the entrance of your home you encounter a mess in your house.
+Not the usual one you leave behind before leaving, this looks like a disaster a hurricane could have left.
 
-Then, it attacked you. Something jumped from behind and tied to your head, scratching you as it struggled. You tried to fight and managed to remove the thing from your face, leaving scars like if you just fought a tiger.
+On the floor you spot a trace of food.
+Not one in particular, but a mixture of many things that were probably stolen from your kitchen.
 
-After it fell on the ground you saw it, a leech-like creature, almost the size of a domestic dog crawling around with many thin spider legs.
+[[Continue->Entrance]]
+
+
+
+:: IGNORE {"position":"1300,400","size":"100,100"}
+(set: $panicked to true)
+(set: $injured to true)
+
+You acted like nothing happened.
+Just another mess you’ll clean “later”.
+
+Then, it attacked you.
+
+Something jumped from behind and latched onto your head.
+You manage to pull it off, screaming.
+
+A leech-like creature, almost the size of a dog, crawls on the floor.
 
 [[Continue->STARE AT MONSTER]]
 
 
-:: INVESTIGATE {"position":"800,700","size":"100,100"}
-You slowly walk following the path of ingredients... You start to hear something, like a rat searching between things, a really big rat.
+:: INVESTIGATE {"position":"1300,600","size":"100,100"}
+(set: $heardMonster to true)
 
-Then you spotted it. A leech-like creature, almost the size of a domestic dog with many thin legs like a spider, it was horrible. 
+You slowly follow the trail.
+A wet, shuffling sound echoes through the house.
 
-The monster suddenly turned around and "stared" at you, as it didn't have any eyes, just a giant circular mouth with fangs around like a saw. It immeaditely jumped towards you but you managed to dodge it.
+Then you see it.
+
+A leech-like creature, huge, with spider-like legs and a circular mouth full of grinding fangs.
+
+It turns toward you.
+
+It jumps.
+You dodge just in time.
 
 [[Continue->STARE AT MONSTER]]
 
 
-:: STARE AT MONSTER {"position":"1000,900","size":"100,100"}
-The creature stayed still for a moment with its legs tembling.
-A wet sound came from its circular mouth, fangs grinding slowly.
+:: STARE AT MONSTER {"position":"1500,500","size":"100,100"}
+The creature freezes.
+Its legs tremble.
+It’s listening.
 
-You realized it was listening to you breathe.
+(if: $injured)[
+Blood drips onto the floor.
+The creature reacts to the sound.
+]
+
+What do you do?
 
 [[Stay still->STILL]]
 [[Grab something and attack->ATTACK]]
 [[Run for the door->ESCAPE]]
 
 
-:: STILL {"position":"1000,1100","size":"100,100"}
-You freeze. Seconds stretch painfully.
-The creature suddenly turns away, distracted by the smell of food deeper in the house.
+:: STILL {"position":"1700,500","size":"100,100"}
+You freeze.
+Even your breathing feels too loud.
+
+The creature turns away, distracted.
+
+[[Strike now->ATTACK]]
+[[Remain perfectly still->STILL2]]
+[[Sneak toward the exit->ESCAPE]]
 
 
-[[Take the chance to strike it now->ATTACK]]
-[[Remain completely still->STILL2]]
-[[Sneak past it toward the exit->ESCAPE]]
+:: STILL2 {"position":"1900,500","size":"100,100"}
+You don’t move.
+Not even to breathe.
 
+The creature suddenly turns back.
 
-
-
-
-:: STILL2 {"position":"1000,1500","size":"100,100"}
-You don’t move. Not even to breathe.
-
-The silence drags on until the creature slowly turns back toward you.
 This time, it doesn’t hesitate.
 
-It lunges with terrifying precision, its fanged mouth closing around you before you can react.
-
-[[Ending 2]]
+[[Continue->Ending 2]]
 
 
-:: Start {"position":"1000,300","size":"100,100"}
-After you open the entrance of your home you encounter a mess in your house.
-Not the usual one you leave behind before leaving, this looks like a disaster a hurricane could have left.
 
-On the floor you spot a trace of food. Not one in particular, but a mixture of many things that were probably stolen from your kitchen.
+:: Start {"position":"300,500","size":"100,100"}
+(set: $money to 20)
+(set: $hasUmbrella to false)
+(set: $ateFood to false)
+(set: $injured to false)
+(set: $panicked to false)
+(set: $attackedFirst to false)
+(set: $heardMonster to false)
 
-[[Continue->Entrance]]
+Rain pours relentlessly from a gray sky, soaking the streets and blurring the city lights.  
+Your stomach growls, you haven’t eaten all day.
+
+You check your wallet. **$20. That’s all you have.**
+
+[[Continue->BUY]]
