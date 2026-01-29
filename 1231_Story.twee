@@ -1,0 +1,274 @@
+:: StoryTitle
+Dreams
+
+
+:: StoryData
+{
+  "ifid": "7CC9C2C9-C3E9-48AC-8B00-EFDB3D6B9D1B",
+  "format": "Harlowe",
+  "format-version": "3.3.9",
+  "start": "START",
+  "zoom": 0.6
+}
+
+
+:: AskWife {"position":"1200,900","size":"100,100"}
+{
+(set: $askedWife to true)
+}
+
+"..." Is the only answer you get.
+
+Theodore makes a frown before he falls asleep.
+
+[[(Go to sleep too)->Theodores dream]]
+
+
+:: CallQueen {"position":"1500,1500","size":"100,100"}
+She stops, then the squares beneath you shudder violently. Pieces topple in erratic patterns, and the air seems to press in on your temples.
+
+A sharp headache pierces your skull, as if the dream itself resents your intrusion.
+
+The queen suddenly disappears, only a path of square is left in front of you.
+
+[[(Follow the path)->ChessPieces]]
+
+
+:: ChessPieces {"position":"1200,1300","size":"100,100"}
+You follow a path made of the same monochrome squares, moving alongside the other pieces.
+
+Your presence doesn't matter to the pieces, they keep moving around like automated machines
+
+[[(Study the chess pieces)->StudyPieces]] 
+
+[[(Attempt to influence a piece)->ManipulatePiece]]
+
+
+:: CommentTeaching {"position":"1400,900","size":"100,100"}
+{
+(set: $askedStudents to true)
+}
+
+He gives a faint, dry smirk. "Perhaps… but the numbers don’t care."
+
+[[(Go to sleep too)->Theodores dream]]
+
+
+:: DAY1 {"position":"900,500","size":"100,100"}
+(css: "font-size: 200%")+(align: "=><=")+(text-style:"bold","superscript","outline","expand")[DAY 1]
+
+This day Doctor Hammond isn't present, instead a nurse approaches holding two thin folders.
+
+"These are your assigned patients."
+
+The nurse places the folders on the table.
+
+"Read them carefully,"
+
+
+(text-style:"bold")[PATIENT FILE — NATASHA WALKER]
+Age: 17
+Family History: Unknown
+Diagnosis: Schizophrenia (Paranoid subtype)
+Referral Reason: Persistent hallucinations, disorganized thought patterns, derealization
+
+(text-style:"bold")[PATIENT FILE — THEODORE KELLER]
+Age: 47
+Profession: Mathematics Teacher (Secondary Education)
+Diagnosis: Major Depressive Disorder
+Referral Reason: Emotional withdrawal, insomnia, loss of motivation following separation from spouse
+
+
+
+Which patient will you choose, Doctor?
+
+[[Natasha]]
+
+[[Theodore]]
+
+
+:: DRINK the cofee {"position":"1850,550","size":"100,100"}
+
+
+
+:: Drink the coffee {"position":"1725,550","size":"100,100"}
+
+
+
+:: FollowQueen {"position":"1600,1300","size":"100,100"}
+You step across the gaps in the board, carefully following the queen’s silhouette.
+
+Every step you take makes the queen look less like a piece and more like a real woman. She is looking at many missing squares in the horizon.
+
+
+
+
+[[(Call out to her)->CallQueen]]
+
+[[(Keep your distance and observe)->ObserveQueen]]
+
+
+:: ManipulatePiece {"position":"1300,1500","size":"100,100"}
+You reach out and move a pawn.
+
+It topples over another piece, starting a chain reaction, the pieces domino across the board, cascading in a strange, mesmerizing rhythm.
+
+{(if:  $askedStudents is true)
+[
+{(set: $madnessLogic to $madnesLogic + 1)}
+But one piece remains unmoved. The domino effect stops short, leaving a single pawn standing stubbornly, defying your influence.
+](if:  $askedStudents is false)
+[
+{(set: $madnessLogic to $madnesLogic + 2)}
+A shiver runs through you. The dream seems to reveal hidden connections, patterns you almost understand, like glimpses of Theodore’s mind.
+]}
+
+
+
+:: Natasha {"position":"400,700","size":"100,100"}
+
+
+
+:: ObserveQueen {"position":"1700,1500","size":"100,100"}
+
+
+
+:: START {"position":"900,300","size":"100,100"}
+{
+(set: $dreamLevel to 0)
+(set: $madnessLogic to 0)
+(set: $mindState to "normal")
+
+(set: $attendedNatasha to false)
+(set: $attendedTheodore to false)
+}
+After decades of psychological research, a new method of treatment was developed.
+
+Instead of observing trauma from the outside, therapists learned to enter the patient’s dreams, where memories form without filters.
+
+This is made possible by a device known as the D.I.V.E. Unit (Dream Interface & Visualization Engine).
+
+The machine resembles a sealed box. Once the patient falls asleep, two headphone-like interfaces are connected, one to the patient, and one to the therapist.
+
+When both signals synchronize, the dream opens.
+
+|continueLink>[
+(link-reveal: "(Continue)")[
+    (replace: ?continueLink)[
+    -----------------------------------------------------------------------------------------]
+    (show: ?nextText)
+]
+]
+|nextText)[
+You are informed that you will be the next therapist authorized to use the D.I.V.E. Unit.
+
+"Before we begin," said Doctor Hammond.
+"there are only two things you need to remember."
+
+"First, do not remain inside a dream for too long. Extended exposure blurs your sense of reality," he continued.
+
+"Second, observe before you act. Reckless decisions inside a patient’s mind can alter your own personality." He finished the explanation taking the device from what it seemed to be a drawer, positioning it on a table in front of you.
+
+"This, is the D.I.V.E Unit"
+
+The procedure can be stopped.
+The consequences cannot.
+
+
+
+[[I understand->DAY1]]
+]
+
+
+
+
+:: StaySilent {"position":"1600,900","size":"100,100"}
+He exhales slowly, curling slightly on the sofa. Silence stretches.
+
+[[(Go to sleep too)->Theodores dream]]
+
+
+:: StudyPieces {"position":"1100,1500","size":"100,100"}
+You crouch slightly, examining the pieces’ movements.
+
+Slowly, patterns emerge. The precise, unyielding motions of pawns and knights reveal Theodore’s strictness as a teacher, every action measured, every mistake punished by the shifting formation of the other pieces.
+
+The dream feels rigid, unforgiving, yet fascinatingly precise.
+
+
+:: Theodore {"position":"1400,700","size":"100,100"}
+{
+(set: $attendedTheodore to true)
+(set: $askedWife to false)
+(set: $askedStudents to false)
+}
+
+The room is quiet. Theodore Keller walks in, shoulders stiff, and lowers himself onto the sofa. He sighs, staring at the ceiling..
+
+He seems tired, withdrawn, ready to fall asleep.
+
+
+
+You can speak before he drifts off:
+
+[[(Ask about his wife)->AskWife]]
+
+[["Your students must miss your classes."->CommentTeaching]]
+
+[[(Stay silent)->StaySilent]]
+
+
+
+
+:: Theodores dream {"position":"1400,1100","size":"100,100"}
+You woke up, but inside his dreams.
+
+[<img src="https://png.pngtree.com/background/20241031/original/pngtree-surreal-chess-landscape-landscape-fairytale-wonderland-photo-picture-image_11109633.jpg"\ width="600px" height="500px">]
+
+The ground beneath your feet is filled with black and white squares, a giant chessboard. In the distance you can spot mountains made of these squares stretching to infinity.
+
+You turn around and see human-sized chess pieces everywhere, pawns, rooks and bishops moving around.
+
+{(if:  $askedWife is true)
+[
+Some squares are missing entirely, leaving gaps that reveal nothingness beneath.
+At the far end of the board, the silhouette of a queen piece looms, unmoving.
+
+Some pieces "seem" to look at you. You don't feel so comfortable here.
+]
+(if:  $askedWife is false)
+[
+Pawns march in perfect formation. Knights leap in exact arcs, rooks form straight towers, each piece obeying invisible algorithms. 
+
+It feels like a geometric carnival.
+]}
+
+
+
+What do you do now?
+
+[[(Follow the chess pieces)->ChessPieces]]
+
+{(if:  $askedWife is true)
+[
+[[Follow the queen->FollowQueen]]
+]}
+
+
+:: coffee {"position":"1725,425","size":"100,100"}
+
+(align: "=><=")[<img src="https://img.freepik.com/premium-photo/cup-coffee-cafe_392895-90386.jpg"\>]
+
+{
+(if: $dreamLevel >= 5)[
+You hear a weird noise neraby. Maybe the coffee is trying to tell you something so you put your ear close to the cup.
+
+"Drink me! Drink me!"
+
+What will you do?
+
+[[Drink the coffee]]
+
+[[DRINK the cofee]]
+]
+}
