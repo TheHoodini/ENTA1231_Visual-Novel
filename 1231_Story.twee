@@ -8,8 +8,57 @@ Dreams
   "format": "Harlowe",
   "format-version": "3.3.9",
   "start": "START",
+  "tag-colors": {
+    "Theo": "blue"
+  },
   "zoom": 0.6
 }
+
+
+:: AlarmNatasha {"position":"200,1900","size":"100,100"}
+A sharp tone cuts through the swamp, artificial and wrong in this place of organic nightmares.
+
+You recognize the sound, the timer from the D.I.V.E. Unit, bleeding through from your real body.
+
+Ahead of you, a doorway of light appears, standing upright in the middle of the swamp. It's clean, bright, and utterly out of place.
+
+You know that it's time to wake up.
+
+
+
+[[(Wake up)->WakeUpNatasha]]
+
+[[(Keep studying the dream)->ContinueDreamNatasha]]
+
+
+:: AlarmTheo {"position":"1200,1700","size":"100,100"}
+A sharp tone echoes through your ears, it does not belong to this world.
+You recognize the sound the timer from the D.I.V.E. Unit, bleeding through from your real body.
+
+Ahead of you, a door materializes, standing upright on the board. Plain, solid and real.
+
+You know that it's time to wake up.
+
+
+
+
+[[(Wake up)->WakeUpTheo]]
+
+[[(Keep studying the dream)->ContinueDreamTheo]]
+
+
+:: AskMother {"position":"200,900","size":"100,100"}
+{
+(set: $askedMother to true)
+}
+
+Her eyes widen, pupils dilating.
+
+"She... she watches from the water. Always watching."
+
+Natasha curls into herself, trembling slightly before her eyes flutter closed.
+
+[[(Go to sleep too)->Natashas dream]]
 
 
 :: AskWife {"position":"1200,900","size":"100,100"}
@@ -24,20 +73,62 @@ Theodore makes a frown before he falls asleep.
 [[(Go to sleep too)->Theodores dream]]
 
 
+:: CallCreature {"position":"700,1500","size":"100,100"}
+{(set: $madnessLogic to $madnessLogic - 3)}
+Your voice echoes wrong in the swamp, multiplying and distorting until it sounds like a crowd screaming.
+
+The creature turns fully toward you. Its face is familiar, impossibly familiar, it cycles through faces you've seen before, people from your life, strangers from dreams, and finally settles on something that might be Natasha's mother, or might be Natasha herself, or might be something wearing their features like a mask.
+
+It opens its mouth, and instead of sound, the darkness itself pours out, flooding toward you like liquid night.
+
+The water at your feet turns black instantly.
+
+A sharp headache splits your skull, and you taste copper.
+
+The creature disappears beneath the surface, but you feel it circling below.
+
+
+
+[[(Follow the current)->CreatureCircle]]
+
+
 :: CallQueen {"position":"1500,1500","size":"100,100"}
+{(set: $madnessLogic to $madnesLogic + 3)}
 She stops, then the squares beneath you shudder violently. Pieces topple in erratic patterns, and the air seems to press in on your temples.
 
 A sharp headache pierces your skull, as if the dream itself resents your intrusion.
 
 The queen suddenly disappears, only a path of square is left in front of you.
 
+
+
+
 [[(Follow the path)->ChessPieces]]
+
+
+:: CheckReflection {"position":"500,1900","size":"100,100"}
+{(set: $madnessLogic to $madnessLogic + 2)}
+
+You look down at your reflection in the crystalline water.
+
+It's not quite right. The movements lag slightly, or move too soon, or move in ways you didn't move.
+
+Your reflection's eyes hold an intelligence that feels separate from yours. It's studying you the way you're studying it.
+
+Then it smiles, though you didn't smile.
+
+The water ripples, distorting the image, but when it settles, your reflection has Natasha's face, and Natasha's reflection has yours.
+
+[[Continue->AlarmNatasha]]
 
 
 :: ChessPieces {"position":"1200,1300","size":"100,100"}
 You follow a path made of the same monochrome squares, moving alongside the other pieces.
 
 Your presence doesn't matter to the pieces, they keep moving around like automated machines
+
+
+
 
 [[(Study the chess pieces)->StudyPieces]] 
 
@@ -52,6 +143,124 @@ Your presence doesn't matter to the pieces, they keep moving around like automat
 He gives a faint, dry smirk. "Perhaps… but the numbers don’t care."
 
 [[(Go to sleep too)->Theodores dream]]
+
+
+:: CommentVoices {"position":"400,900","size":"100,100"}
+{
+(set: $askedVoices to true)
+}
+
+She nods rapidly, too many times. "They never stop. They know things... things I shouldn't know."
+
+Her voice drops to a whisper. "They're here now."
+
+[[(Go to sleep too)->Natashas dream]]
+
+
+:: ContinueDreamNatasha {"position":"400,2100","size":"100,100"}
+{(set: $dreamLevel to $dreamLevel + 1)}
+You ignore the alarm.
+
+The creature surfaces fully now, impossibly close. Its body is a contradiction, solid and liquid, here and there, one creature and many.
+
+It doesn't attack. Instead, it mirrors your movements, tilting its head when you tilt yours, stepping when you step.
+
+You begin to understand Natasha's schizophrenia, not as random chaos, but as a pattern that makes sense only to itself. The voices aren't random, they're trying to warn her. The paranoia isn't baseless, her mind truly believes threats lurk everywhere.
+
+She's not broken. She's adapted to a reality that doesn't exist.
+
+
+
+[[(Explore the zone further)->ContinueDreamNatasha2]]
+
+[[(WAKE UP)->WakeUpNatasha]]
+
+
+:: ContinueDreamNatasha2 {"position":"400,2300","size":"100,100"}
+{(set: $dreamLevel to $dreamLevel + 2)}
+
+The door remains, but the swamp transforms around it.
+
+The crystalline water turns opaque, then transparent again, cycling between states. The creature multiplies, becoming two, five, dozens, all moving in perfect synchronization.
+
+They speak now, all with the same voice: Natasha's voice.
+
+"They know I'm different."
+"They know I see things."
+"They know I know."
+
+{(if: $studiedReflection is true)
+[
+You understand now, she's not afraid of being watched. She's afraid of what they'll do when they confirm what they already suspect, that she's not like them, that her reality is fundamentally different.
+]}
+
+The creatures circle you, not threatening, just... present. Always present. Never letting you forget you're being observed.
+
+The swamp whispers a truth: You can't hide from watchers who live inside your own perception.
+
+One creature lunges forward suddenly, wrapping around you, pulling you under the crystalline water.
+
+[[(You wake up)->WakeUpNatasha]]
+
+
+:: ContinueDreamTheo {"position":"1300,1900","size":"100,100"}
+{(set: $dreamLevel to $dreamLevel + 1)}
+You ignore the sound in your ears.
+
+The pieces shift positions on their own, repeating the same sequence over and over. No move leads to a victory. No move leads to an end.
+
+The king lowers its head.
+
+For the first time since entering the dream, something here feels tired. You begin to get a peek of Theodore’s depression.
+
+
+
+
+[[(Explore the zone further)->ContinueDreamTheo2]]
+
+[[(WAKE UP)->WakeUpTheo]]
+
+
+:: ContinueDreamTheo2 {"position":"1300,2100","size":"100,100"}
+{(set: $dreamLevel to $dreamLevel + 2)}
+
+The door remains, but the world shifts around it.
+The chessboard bends, squares stretching unevenly. Pieces change roles mid-move, no longer following their own rules.
+
+Equations fill the sky, writing and erasing themselves.
+
+He understands systems perfectly.
+But human emotions refuse structure.
+
+He could never fully read them.
+He could never solve them.
+
+{(if:  $studiedQueen is true)
+[
+You can perfectly see why she left
+]}
+
+The board falls silent.
+
+The dream is watching you. A rook behaves like a real horse and begins to run until it reaches you and tackles you.
+
+[[(You wake up)->WakeUpTheo]]
+
+
+:: CreatureCircle {"position":"600,1700","size":"100,100"}
+You follow the path of ripples, moving through sections of the swamp that grow increasingly strange.
+
+Trees twist into impossible shapes, their reflections in the water showing different trees entirely.
+
+The crystalline clarity never changes, even as everything else does.
+
+You pass through zones where the water is ankle-deep and others where it's somehow both waist-deep and ankle-deep at once, your perception splitting between two realities.
+
+
+
+[[(Examine your reflection)->CheckReflection]]
+
+[[(Continue forward)->PushDeeper]]
 
 
 :: DAY1 {"position":"900,500","size":"100,100"}
@@ -87,11 +296,45 @@ Which patient will you choose, Doctor?
 [[Theodore]]
 
 
-:: DRINK the cofee {"position":"1850,550","size":"100,100"}
+:: DAY2 {"position":"900,2500","size":"100,100"}
+(css: "font-size: 200%")+(align: "=><=")+(text-style:"bold","superscript","outline","expand")[DAY 2]
+
+You come to the office and they hand you the other file
+
+{
+(if:  $attendedTheodore is false)
+[
+[[(Attend Theodore)->Theodore]]
+]
+(if:  $attendedNatasha is false)
+[
+[[(Attend Theodore)->Natasha]]
+]
+}
+
+
+:: DRINK the cofee {"position":"1100,2900","size":"100,100"}
 
 
 
-:: Drink the coffee {"position":"1725,550","size":"100,100"}
+:: Drink the coffee {"position":"900,2900","size":"100,100"}
+
+
+
+:: FollowCreature {"position":"600,1300","size":"100,100"}
+You move toward the ripples, wading deeper into the swamp.
+
+The creature's form becomes clearer as you approach, it's massive, with too many limbs that bend in wrong directions. Its skin seems to shift between scales and feathers and bare flesh.
+
+But its eyes... its eyes are painfully human.
+
+
+
+
+[[(Observe from a distance)->ObserveCreature]]
+
+[[(Yell at it)->CallCreature]]
+
 
 
 
@@ -116,21 +359,143 @@ It topples over another piece, starting a chain reaction, the pieces domino acro
 {(if:  $askedStudents is true)
 [
 {(set: $madnessLogic to $madnesLogic + 1)}
-But one piece remains unmoved. The domino effect stops short, leaving a single pawn standing stubbornly, defying your influence.
+A group of pieces remain unmoved. The domino effect stops short, leavingthe rest of the pieces intact. You see the pieces closely and notice that some of them gave the face of young people. Probably Theodore's students.
 ](if:  $askedStudents is false)
 [
 {(set: $madnessLogic to $madnesLogic + 2)}
-A shiver runs through you. The dream seems to reveal hidden connections, patterns you almost understand, like glimpses of Theodore’s mind.
+You gasp as a giant rook behind you falls towards you, but instead of crushing you it divides into thousands of smaller rooks that melt in your skin. 
+<br>
+A shiver runs through you. It seems like you begin to understand the ecuations in the sky, patterns you almost comprehend, like glimpses of Theodore’s mind. 
 ]}
 
 
 
-:: Natasha {"position":"400,700","size":"100,100"}
+[[Continue->AlarmTheo]]
 
+
+:: Natasha {"position":"400,700","size":"100,100"}
+{
+(set: $attendedNatasha to true)
+(set: $askedMother to false)
+(set: $askedVoices to false)
+}
+
+A young woman enters hesitantly, eyes darting around the room as if watching for something invisible. She wraps her arms around herself defensively.
+
+Natasha Walker sits on the edge of the sofa, barely making contact with it, as if ready to flee at any moment.
+
+Her breathing is quick, shallow.
+
+You can speak before she drifts off:
+
+[[(Ask about her mother)->AskMother]]
+
+[["The voices... do they speak to you often?"->CommentVoices]]
+
+[[(Stay silent)->StaySilentNatasha]]
+
+
+:: Natashas dream {"position":"400,1100","size":"100,100"}
+{
+(set: $studiedReflection to false)
+}
+You wake up, but inside her dreams.
+
+[<img src="https://media.gettyimages.com/id/2113459966/video/eerie-twilight-in-prehistoric-jungle.jpg?s=640x640&k=20&c=lhUzxbU-eW7AFFsQP3S48l_v9pXd1V3PH6cU5CDDWTM=" width="600px" height="500px">]
+
+The world around you is darkness. A thick, humid darkness that presses against your skin like wet fabric.
+
+You're standing in shallow water, ankle-deep. It's crystal clear, impossibly so, you can see every grain of sand beneath the surface, every tiny particle suspended in the liquid.
+
+But beyond the water, you can barely see anything. The night swallows everything.
+
+Twisted trees rise from the swamp like skeletal fingers, their branches reaching but going nowhere. The air smells of rot and flowers at once.
+
+{(if: $askedMother is true)
+[
+Something moves in the distance. Too large to be human. Too fluid to be real.
+
+You feel eyes on you, multiple sets, unblinking.
+
+The water ripples though nothing touched it.
+]
+(if: $askedMother is false)
+[
+The swamp is eerily quiet. No insects, no frogs, no life sounds at all.
+
+Just the gentle lap of crystalline water against your legs.
+
+The silence feels deliberate, maintained.
+]}
+
+
+[[(Wade through the swamp)->SwampPath]]
+
+{(if: $askedMother is true)
+[
+[[(Follow the ripples)->FollowCreature]]
+]}
+
+
+:: ObserveCreature {"position":"500,1500","size":"100,100"}
+{
+(set: $studiedReflection to true)
+}
+You watch carefully, staying still in the water.
+
+The creature moves in patterns, circular, obsessive. It's hunting but also hiding, seeking but also fleeing.
+
+You realize, it's afraid of something in the swamp too.
+
+It keeps looking at the darkness beyond the trees, as if watching for a greater threat. Whatever Natasha fears, this creature fears something more.
+
+You understand now, this creature isn't the source of her paranoia. It's a symptom. A manifestation of her need to see threats before they see her.
+
+She created a monster to watch for worse monsters.
+
+The creature slowly sinks into the water, only the ripples remain, moving in concentric circles.
+
+
+
+[[(Follow the current)->CreatureCircle]]
 
 
 :: ObserveQueen {"position":"1700,1500","size":"100,100"}
+{
+(set: $studiedQueen to true)
+}
+You study the queen.
 
+She moves freely across the board, powerful, precise… and completely ignored.
+No piece ever reacts to her signals. Her paths cross others, but no one adjusts.
+
+You understand.
+She spoke often.
+
+She tried to change the pattern.
+But he never learned to read the signs.
+
+He never noticed until the board was already broken.
+
+The quietly disappears, only a path of square is left in front of you.
+
+
+
+[[(Follow the path)->ChessPieces]]
+
+
+:: PushDeeper {"position":"700,1900","size":"100,100"}
+{(set: $madnessLogic to $madnessLogic - 1)}
+
+You wade forward, and the swamp begins to change its rules.
+
+Sounds emerge, whispers in languages you don't know but somehow understand. They speak of watching, of being watched, of eyes that never close.
+
+The water grows warmer, then colder, then both temperatures at once in a way that shouldn't be possible.
+
+You glimpse the creature again, closer now, its too-many limbs pulling it through the water with unnatural grace.
+
+[[Continue->AlarmNatasha]]
 
 
 :: START {"position":"900,300","size":"100,100"}
@@ -180,12 +545,16 @@ The consequences cannot.
 ]
 
 
-
-
 :: StaySilent {"position":"1600,900","size":"100,100"}
 He exhales slowly, curling slightly on the sofa. Silence stretches.
 
 [[(Go to sleep too)->Theodores dream]]
+
+
+:: StaySilentNatasha {"position":"600,900","size":"100,100"}
+She rocks gently, humming a tune that sounds wrong, off-key. Her eyes close gradually, still moving beneath the lids.
+
+[[(Go to sleep too)->Natashas dream]]
 
 
 :: StudyPieces {"position":"1100,1500","size":"100,100"}
@@ -194,6 +563,53 @@ You crouch slightly, examining the pieces’ movements.
 Slowly, patterns emerge. The precise, unyielding motions of pawns and knights reveal Theodore’s strictness as a teacher, every action measured, every mistake punished by the shifting formation of the other pieces.
 
 The dream feels rigid, unforgiving, yet fascinatingly precise.
+
+
+
+
+[[Continue->AlarmTheo]]
+
+
+:: StudyWater {"position":"100,1500","size":"100,100"}
+You kneel down, peering into the crystalline depths.
+
+Despite the perfect clarity, the water seems impossibly deep. You can see down, down, down... layers upon layers of nothing.
+
+Then you notice them, faces beneath the surface. Not reflections. Different faces, strangers and familiar ones mixed together, all staring upward with mouths forming silent words.
+
+{(if: $askedVoices is true)
+[
+{(set: $madnessLogic to $madnessLogic + 1)}
+The faces begin to speak in unison, their voices somehow reaching you through the water:
+
+"She knows. She knows. She knows."
+
+You recognize some faces as people Natasha must have known. Their accusations feel real, their knowledge invasive.
+]
+(if: $askedVoices is false)
+[
+{(set: $madnessLogic to $madnessLogic + 2)}
+One face rises closer to the surface, pressing against it from below. Its eyes are your eyes. Its mouth moves with your breathing.
+
+You stumble backward, but the face follows, staying directly beneath you no matter where you move.
+]}
+
+
+[[Continue->AlarmNatasha]]
+
+
+:: SwampPath {"position":"200,1300","size":"100,100"}
+You move forward through the clear water, each step sending perfect ripples outward.
+
+The swamp seems to breathe around you, expanding and contracting in rhythm with something you can't identify.
+
+Occasionally, you glimpse movement in your peripheral vision, but when you turn to look, there's only darkness.
+
+
+
+[[(Examine the water closely)->StudyWater]]
+
+[[(Reach into the darkness)->TouchDarkness]]
 
 
 :: Theodore {"position":"1400,700","size":"100,100"}
@@ -218,9 +634,10 @@ You can speak before he drifts off:
 [[(Stay silent)->StaySilent]]
 
 
-
-
 :: Theodores dream {"position":"1400,1100","size":"100,100"}
+{
+(set: $studiedQueen to false)
+}
 You woke up, but inside his dreams.
 
 [<img src="https://png.pngtree.com/background/20241031/original/pngtree-surreal-chess-landscape-landscape-fairytale-wonderland-photo-picture-image_11109633.jpg"\ width="600px" height="500px">]
@@ -245,18 +662,54 @@ It feels like a geometric carnival.
 
 
 
-What do you do now?
-
 [[(Follow the chess pieces)->ChessPieces]]
 
 {(if:  $askedWife is true)
 [
-[[Follow the queen->FollowQueen]]
+[[(Follow the queen)->FollowQueen]]
 ]}
 
 
-:: coffee {"position":"1725,425","size":"100,100"}
+:: TouchDarkness {"position":"300,1500","size":"100,100"}
+You extend your hand into the thick darkness beyond the water's edge.
 
+The moment your fingers cross the boundary, something cold wraps around them, something with texture like wet leather and hunger like an open wound.
+
+You yank your hand back. The darkness ripples where you touched it.
+
+{(if: $askedVoices is true)
+[
+{(set: $madnessLogic to $madnessLogic + 2)}
+Whispers explode in your mind, layered voices speaking different languages, different warnings, different truths. They overlap and contradict, building into a cacophony.
+
+You press your hands to your ears, but the voices are inside.
+]
+(if: $askedVoices is false)
+[
+{(set: $madnessLogic to $madnessLogic + 1)}
+Something laughs in the darkness. It sounds delighted, as if you've just played perfectly into its hands.
+
+The water around you begins to glow faintly, making you visible, exposed.
+]}
+
+
+
+[[Continue->AlarmNatasha]]
+
+
+:: WakeUpNatasha {"position":"200,2500","size":"100,100"}
+You wake up from Natasha's dream
+
+[[DAY2]]
+
+
+:: WakeUpTheo {"position":"1100,2100","size":"100,100"}
+You wake up from Theodore's dream
+
+[[DAY2]]
+
+
+:: coffee {"position":"900,2700","size":"100,100"}
 (align: "=><=")[<img src="https://img.freepik.com/premium-photo/cup-coffee-cafe_392895-90386.jpg"\>]
 
 {
